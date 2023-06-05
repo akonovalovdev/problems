@@ -1,7 +1,8 @@
 package main
 
 func weekday(day int) string {
-	const invalidDay = "Некорректный день недели"
+	const invalidDay = "Некорректный день недели" // создаём константу с дефолтным значением
+	// создаём мапу с целочесленными ключами и строковыми значениями для сохранения дней недели
 	calendar := map[int]string{
 		1: "Понедельник",
 		2: "Вторник",
@@ -11,11 +12,11 @@ func weekday(day int) string {
 		6: "Суббота",
 		7: "Воскресенье",
 	}
-	dayweek, ok := calendar[day]
+	dayweek, ok := calendar[day] //проверяем принятое число с ключами
 	if ok {
-		return dayweek
+		return dayweek // если ключ совпал, возвращаем значение дня недели
 	}
-	return invalidDay
+	return invalidDay // если ключа нет, возвращаем дефолтный кейс
 }
 
 // 	switch day {
