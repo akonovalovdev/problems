@@ -1,13 +1,13 @@
 package main
 
 func linearSearch(nums []int, target int) int {
-	const invalidIndex = -1
-	for i, v := range nums {
-		if v == target {
-			return i
+	const invalidIndex = -1  // выносим дефолтное значение в константу
+	for i, v := range nums { // пробегаемся по массиву рэнджом
+		if v == target { // сравниваем значение с таргетом
+			return i // возвращаем индекс
 		}
 	}
-	return invalidIndex
+	return invalidIndex // возвращаем дефолтное значение
 }
 
 // 	for i := 0; i < len(nums); i++ {
