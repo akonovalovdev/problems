@@ -12,9 +12,9 @@ import "fmt"
 
 func main() {
 	s, t := "анаграмма", "нагарамма"
-	fmt.Println(isAnagram(s, t))
+	fmt.Println(isAnagram(s, t)) // true
 	s, t = "крыса", "автомобиль"
-	fmt.Println(isAnagram(s, t))
+	fmt.Println(isAnagram(s, t)) // false
 	s, t = "истребитель", "бистретеиль"
-	fmt.Println(isAnagram(s, t))
+	fmt.Println(isAnagram(s, t)) // true
 }
