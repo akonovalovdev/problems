@@ -3,12 +3,13 @@ package main
 import "fmt"
 
 func encodeNumber(input int) (binary string) {
+	// в цикле переводим заданное число в бинарные значение
 	for input >= 1 {
-		ostatok := input % 2
-		binary = fmt.Sprintf("%d%s", ostatok, binary)
-		input /= 2
+		ostatok := input % 2                          // каждую итерацию берём остаток 2 от числа
+		binary = fmt.Sprintf("%d%s", ostatok, binary) // подставляем остаток в строку слева от записанных ранее
+		input /= 2                                    // уменьшаем число на 2
 	}
-	return binary
+	return binary // возвращаем строку как ответ
 }
 
 // 123/2=61 % 1
