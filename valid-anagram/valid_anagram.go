@@ -1,10 +1,7 @@
 package main
 
 func isAnagram(s, t string) bool {
-	if len(s) != len(t) {
-		return false
-	}
-	anagr := make(map[rune]int, 33)
+	anagr := make(map[rune]int)
 	for _, v := range s {
 		anagr[v] = anagr[v] + 1
 	}
@@ -14,7 +11,8 @@ func isAnagram(s, t string) bool {
 			return false
 		}
 		anagr[v] = ostatok - 1
-		if ostatok == 1 { // вот так корректно считает
+		ostatok = anagr[v]
+		if ostatok == 0 {
 			delete(anagr, v)
 		}
 	}
