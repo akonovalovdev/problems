@@ -2,32 +2,22 @@ package main
 
 import "testing"
 
-func TestFlifArraySearch(t *testing.T) {
+func TestEncodeNumber(t *testing.T) {
 	testCases := []struct {
-		nums []int
-		want []int
+		input int
+		want  string
 	}{
-		{[]int{5, 7, 8}, []int{8, 7, 5}},
-		{[]int{2, 5, 3, 8}, []int{8, 3, 5, 2}},
-		{[]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}, []int{0, 9, 8, 7, 6, 5, 4, 3, 2, 1}},
-		{[]int{1}, []int{1}},
+		{123, "1111011"},
+		{100, "1100100"},
+		{0, ""},
+		{100, "1100100"},
 	}
 	for _, tc := range testCases {
-		got := flipArray(tc.nums)
-		if !equalSlices(got, tc.want) {
-			t.Errorf("flipArraySearch(%d) = %d, want %d", tc.nums, got, tc.want)
-		}
-	}
-}
+		got := encodeNumber(tc.input)
 
-func equalSlices(a, b []int) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for i := 0; i < len(a); i++ {
-		if a[i] != b[i] {
-			return false
+		if got != tc.want {
+			t.Errorf("reverseString(%d) = %s; want %s", tc.input, got, tc.want)
 		}
 	}
-	return true
+
 }
