@@ -2,18 +2,16 @@ package main
 
 import "fmt"
 
+type Slice interface {
+	ToSlice() (digits []int)
+}
+
 type ListNode struct {
 	Value int       // пустое значение - 0
 	Next  *ListNode // пустое значение - nil
 }
 
-func (node *ListNode) ToSlice() (digits []int) {
-	for current := node; current != nil; current = current.Next {
-		digits = append(digits, current.Value)
-	}
-	return digits
-}
-
+// шаг1. переводим срез в связный список
 func NewListNode(digits []int) *ListNode {
 	// это нужно потому(давайте предствим что этого нет) если мы вернём node,
 	// и мы не сможем обратиться к другим элементам этого связного списка, так как это конец
@@ -32,6 +30,7 @@ func NewListNode(digits []int) *ListNode {
 	return head.Next
 }
 
+// шаг2. суммируем значения двух связных списков в 1 новый
 func sumLinkedLists(a *ListNode, b *ListNode) *ListNode { //функция возвращает указательна на созданную структуру
 	carry, dummy := 0, new(ListNode) //&ListNode{} мы создаём указатель(поинтер) на пустую структуру
 	node := dummy
@@ -52,4 +51,21 @@ func sumLinkedLists(a *ListNode, b *ListNode) *ListNode { //функция во�
 		carry /= 10
 	}
 	return dummy.Next
+}
+
+// шаг3. Переносим значение из  связного списка в новый слайс
+func (node *ListNode) ToSlice() (digits []int) {
+	for current := node; current != nil; current = current.Next {
+		digits = append(digits, current.Value)
+	}
+	return digits
+}
+
+// (ДОПОЛНИТЕЛЬНЫЙ) шаг4. оптимизация вывода строки
+func PrintSlice(slices ...Slice) {
+	fmt.Println("Ниже работает интерфейс:")
+	for _, oneSlice := range slices {
+		nums := oneSlice.ToSlice()
+		fmt.Println(nums)
+	}
 }

@@ -22,4 +22,5 @@ func main() {
 	sum := sumLinkedLists(a, b)
 	fmt.Println(sum)
 	fmt.Println(sum.ToSlice())
+	PrintSlice(a, b, sum) // дополнительный шаг
 }
