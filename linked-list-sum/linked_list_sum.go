@@ -34,21 +34,22 @@ func NewListNode(digits []int) *ListNode {
 func sumLinkedLists(a *ListNode, b *ListNode) *ListNode { //функция возвращает указательна на созданную структуру
 	carry, dummy := 0, new(ListNode) //&ListNode{} мы создаём указатель(поинтер) на пустую структуру
 	node := dummy
-	for a != nil || b != nil || carry > 0 {
-		if a != nil {
-			carry += a.Value
-			a = a.Next
+	//исключаем все возможные варианты для цикла
+	for a != nil || b != nil || carry > 0 { // оба связных списка не нил и остаток больше нуля
+		if a != nil { // если первый связный список не нил
+			carry += a.Value // добавляем в общую переменную её значение
+			a = a.Next       // смотрим следующий связный список
 		}
-		if b != nil {
+		if b != nil { // аналогично с первым действия повторяем со вторым связным списком
 			carry += b.Value
 			b = b.Next
 		}
 		node.Next = &ListNode{
-			Value: carry % 10,
+			Value: carry % 10, // добавляем остаток кратный 10 запомненного в значение нового связного списка
 			Next:  nil,
 		}
-		node = node.Next
-		carry /= 10
+		node = node.Next // переходим к следующему связному списку
+		carry /= 10      // определяем перейдёт ли остаток в следующую итерацию
 	}
 	return dummy.Next
 }
