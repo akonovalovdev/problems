@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // 1-убрать пробелы
 // сравнить первый элемент с последним, если они не равны, то вернуть false, если цикл завершен то вернуть true
@@ -32,3 +34,39 @@ func isPalindrom(input string) bool {
 	fmt.Printf("Объяснение: %q - палиндром.\n", string(nSli))
 	return true
 }
+
+// альтернативное решение с методом пакета unicode .ToLover
+//func isPalindrome(s string) bool {
+//	i := 0
+//	j := len(s) - 1
+//	arr := []rune(s)
+//
+//	for i < j {
+//		left := unicode.ToLower(arr[i])
+//		right := unicode.ToLower(arr[j])
+//
+//		if !isLetterOrDigit(left) {
+//			i++
+//			continue
+//		}
+//
+//		if !isLetterOrDigit(right) {
+//			j--
+//			continue
+//		}
+//
+//		if left != right {
+//			return false
+//		}
+//
+//		i++
+//		j--
+//	}
+//
+//	return true
+//}
+//
+//
+//func isLetterOrDigit(s rune) bool {
+//	return unicode.IsLetter(s) || unicode.IsDigit(s)
+//}
