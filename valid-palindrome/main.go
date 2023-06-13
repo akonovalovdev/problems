@@ -11,8 +11,8 @@ import "fmt"
 
 func main() {
 
-	fmt.Println(isPalindrom("A man, a plan, a canal: Panama")) // true
-	fmt.Println(isPalindrom("race a car"))                     // false
-	fmt.Println(isPalindrom(" "))                              // true
-
+	fmt.Println(isPalindrome("A man, a Plan, a canal: Panama")) // true
+	fmt.Println(isPalindrome("race a car"))                     // false
+	fmt.Println(isPalindrome(" "))                              // true
+	fmt.Println(isPalindrome("0P"))
 }

@@ -16,10 +16,10 @@ func TestIsPalindrom(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		got := isPalindrom(tc.input)
+		got := isPalindrome(tc.input)
 
 		if got != tc.want {
-			t.Errorf("Is palindrom(%s) = %t, want %t", tc.input, got, tc.want)
+			t.Errorf("Is palindrome(%s) = %t, want %t", tc.input, got, tc.want)
 		}
 	}
 }
