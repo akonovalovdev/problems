@@ -20,7 +20,7 @@ func isValid(s string) bool {
 			stack = append(stack, input[i])
 			continue // завершаем итерацию цикла
 		}
-		// пробегаемся по всем остальным видам скобок
+		// пробегаемся по всем остальным видам скобок и находим нужную
 		if len(stack) == 0 { // исключающий панику кес с пустым стеком(либо не добавили ещё, либо уже удалили)
 			fmt.Printf("В стэке нет скобок: ")
 			return false
@@ -29,10 +29,10 @@ func isValid(s string) bool {
 			stack = stack[:len(stack)-1] // удаляем совпавшую скобку
 		}
 		if input[i] == '}' && '{' == stack[len(stack)-1] {
-			stack = stack[:len(stack)-1] // удаляем совпавшую скобку
+			stack = stack[:len(stack)-1]
 		}
 		if input[i] == ']' && '[' == stack[len(stack)-1] {
-			stack = stack[:len(stack)-1] // удаляем совпавшую скобку
+			stack = stack[:len(stack)-1]
 		}
 	}
 	// исключаем кейс когда в срезе-стэке всё-ещё остались незакрытые скобки, а в основном все скобки закончились
