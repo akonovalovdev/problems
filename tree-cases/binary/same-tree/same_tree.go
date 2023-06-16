@@ -48,28 +48,20 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 	return true
 }
 
-//
-//func (n *TreeNode) Insert(value int) error {
-//
-//	if n == nil {
-//		return errors.New("Cannot insert a value into a nil tree")
-//	}
-//
-//	switch {
-//	case value == n.Val:
-//		return nil
-//	case value < n.Val:
-//		if n.Left == nil {
-//			n.Left = &TreeNode{Val: value}
-//			return nil
-//		}
-//		return n.Left.Insert(value)
-//	case value > n.Val:
-//		if n.Right == nil {
-//			n.Right = &TreeNode{Val: value}
-//			return nil
-//		}
-//		return n.Right.Insert(value)
-//	}
-//	return nil
+//  // альтернативное быстрое решение
+//func isSameTree(p *TreeNode, q *TreeNode) bool {
+// // Если деревья разные возвращаем сразу фолс
+// if (p == nil) != (q == nil) {
+//    return false
+//  }
+// // Если одно из деревьев нил, возвращаем сразу true
+//  if p == nil {
+//    return true
+//  }
+// // Если значения не равны, возвращаем false
+//  if p.Val != q.Val {
+//    return false
+//  }
+// // Рекурсивно вызываем функцию с правыми и левыми деревьями в ретёрне
+//  return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
 //}
