@@ -37,3 +37,34 @@ func main() {
 	}
 	fmt.Println(isSameTree(p, q))
 }
+func isSameTree(p *TreeNode, q *TreeNode) bool {
+	if (p == nil) != (q == nil) {
+		return false
+	}
+	if p == nil {
+		return true
+	}
+	if p.Val != q.Val {
+		return false
+	}
+	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+}
+func isSameTree(p *TreeNode, q *TreeNode) bool {
+	if p == nil && q == nil {
+		return true
+	}
+
+	if p == nil || q == nil || p.Val != q.Val {
+		return false
+	}
+
+	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+}
+
+А + Б + В
+
+и
+
+(Б + А) + В
+
+— одно и то же

@@ -51,7 +51,7 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 //  // альтернативное быстрое решение
 //func isSameTree(p *TreeNode, q *TreeNode) bool {
 // // Если деревья разные возвращаем сразу фолс
-// if (p == nil) != (q == nil) {
+// if (p == nil) != (q == nil) { // не сработает если оба true или оба false
 //    return false
 //  }
 // // Если одно из деревьев нил, возвращаем сразу true
